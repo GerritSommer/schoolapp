@@ -7,6 +7,13 @@ switch($action) {
   case 'quiz':
     $view = 'quiz';
     break;
+  case 'login':
+    $view = 'login';
+    break;
+  case 'logout':
+    // log out of session
+    $view = 'home';
+    break;
   default:
     $view = 'home';
     break;
