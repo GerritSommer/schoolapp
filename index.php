@@ -16,7 +16,7 @@ error_reporting(-1);
 <body>
 
   <div class="container main">
-    <?php require_once 'views/navigation.php'; ?>
+    <?php require_once 'views/navigation_view.php'; ?>
     <?php require_once 'router.php'; ?>
   </div>
 

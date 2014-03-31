@@ -10,5 +10,5 @@ switch($action) {
     break;
 }
 
-require_once 'views/'. $view .'.php';
+require_once 'views/'. $view .'_view.php';
 ?>
