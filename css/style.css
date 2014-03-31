@@ -1,0 +1,12 @@
+.container.main {
+  margin: 40px auto;
+  border: 1px solid #ddd;
+  width: 90%;
+  min-height: 200px;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style-type: none;
+  margin-right: 1em;
+}

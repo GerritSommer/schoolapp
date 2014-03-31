@@ -2,11 +2,8 @@
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : null;
 
 switch($action) {
-  case 'irgendwas':
-    $view = 'irgendwas';
-    break;
-  case 'irgendwas anderes':
-    $view = 'irgendwas anderes';
+  case 'quiz':
+    $view = 'quiz';
     break;
   default:
     $view = 'home';

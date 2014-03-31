@@ -15,6 +15,10 @@ error_reporting(-1);
 </head>
 <body>
 
-<?php require_once 'router.php'; ?>
+  <div class="container main">
+    <?php require_once 'views/navigation.php'; ?>
+    <?php require_once 'router.php'; ?>
+  </div>
+
 </body>
 </html>
