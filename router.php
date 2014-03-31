@@ -1,4 +1,6 @@
 <?php
+require_once 'includes/connection.php';
+
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : null;
 
 switch($action) {
