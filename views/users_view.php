@@ -1,21 +1,19 @@
-<?php
-  $sql = 'SELECT id, name, role FROM users';
-  $result = $mysqli->query($sql);
-?>
 <div class="container main">
   <table class="table">
     <thead>
       <tr>
-        <th>#</th> <th>Name</th> <th>Rolle</th>
+        <th>#</th> <th>Name</th> <th>Rolle</th><th>details</th>
       </tr>
     </thead>
     <tbody>
-    <?php while ($row = $result->fetch_assoc()): ?>
-      <tr>
-        <td><?php echo $row["id"]; ?></td>
-        <td><?php echo $row["name"]; ?></td>
-        <td><?php echo $row["role"]; ?></td>
-    <?php endwhile; ?>
+    <?php foreach ($users as $user): ?>
+        <tr>
+        <td><?php echo $user->getId(); ?></td>
+        <td><?php echo $user->getName(); ?></td>
+        <td><?php echo $user->getRole(); ?></td>
+        <td><a href="?action=user&user_id=<?php echo $user->getId(); ?>">details</a></td>
+        </tr>
+    <?php endforeach; ?>
     </tbody>
   </table>
 </div>

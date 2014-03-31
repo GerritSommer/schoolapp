@@ -16,13 +16,21 @@ switch($action) {
     $view = 'home';
     break;
   case 'users':
+    $users = User::all();
     $view = 'users';
+    break;
+  case 'user':
+    if(is_numeric($_REQUEST['user_id'])) {
+      $user = User::find($_REQUEST['user_id']);
+    }
+    $view = 'user';
     break;
   case 'new_user';
     $view = 'new_user';
     break;
   default:
-    $view = 'home';
+    require_once 'controllers/login_controller.php';
+    $view = 'login';
     break;
 }
 
