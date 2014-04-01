@@ -8,8 +8,11 @@
     </ul>
     <ul class="nav navbar-nav pull-right">
       <li><a class="glyphicon glyphicon-user" href="index.php"></a></li>
-      <li><a href="?action=login">Login</a></li>
-      <li><a href="?action=logout">Logout</a></li>
+      <?php if(isset($_SESSION['user_id']) and is_numeric($_SESSION['user_id'])): ?>
+        <li><a href="?action=logout">Logout</a></li>
+      <?php else: ?>
+        <li><a href="?action=login">Login</a></li>
+      <?php endif; ?>
     </ul>
   </div>
 </nav>

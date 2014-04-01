@@ -11,9 +11,17 @@ switch($action) {
   case 'login':
     $view = 'login';
     break;
+  case 'post_login':
+    require_once 'controllers/login_controller.php';
+    if(isset($_SESSION['user_id'])) {
+      $view = 'home';
+    } else {
+      $view = 'login';
+    }
+    break;
   case 'logout':
-    // log out of session
-    $view = 'home';
+    require_once 'controllers/logout_controller.php';
+    $view = 'login';
     break;
   case 'users':
     $users = User::all();
@@ -29,8 +37,7 @@ switch($action) {
     $view = 'new_user';
     break;
   default:
-    require_once 'controllers/login_controller.php';
-    $view = 'login';
+    $view = 'home';
     break;
 }
 

@@ -5,10 +5,10 @@
   // $user = User::find(1);
   // echo $user->getName()
 
-  $users = User::all();
-  foreach ($users as $user) {
-    echo $user->getName();
-  }
+  // $users = User::all();
+  // foreach ($users as $user) {
+  //   echo $user->getName();
+  // }
 ?>
 
 
