@@ -1,8 +1,18 @@
 <?php
 class User extends ActiveRecord\Model {
-  public function __toString() { return 'user'. $this->name; }
+  static $attr_protected = array('password');
 
-  // setter example not really needed
-  public function set_name($name) { $this->assign_attribute('name', $name); }
+  static $validates_presence_of = array(array('name'), array('role'));
+
+  public function __toString() { return 'user'. $this->name; }
+  public function set_password($plaintext) { $this->assign_attribute('password', md5($plaintext)); }
+}
+
+class Teacher extend User {
+  static $table_name = 'users';
+}
+
+class Student extend User {
+  static $table_name = 'users';
 }
 ?>

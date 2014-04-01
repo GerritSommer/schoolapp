@@ -5,11 +5,11 @@
       <h4>Basisdaten</h4>
       <dl class="dl">
         <dt>id</dt>
-        <dd>#<?php echo $user->getId(); ?></dd>
+        <dd>#<?php echo $user->id; ?></dd>
         <dt>Name</dt>
-        <dd><?php echo $user->getName(); ?></dd>
+        <dd><?php echo $user->name; ?></dd>
         <dt>Role</dt>
-        <dd><?php echo $user->getRole(); ?></dd>
+        <dd><?php echo $user->role; ?></dd>
       </dl>
     </div>
   </div>

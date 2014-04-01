@@ -24,7 +24,13 @@ nav.navbar {
   background-position: 100% 100%;
   background-image: url('../img/bg.png');
 }
-
+ul.nav li.dropdown:hover ul.dropdown-menu{
+    display: block;
+    margin-top:0px
+}
+ul.nav li.dropdown a {
+  color: #999;
+}
 .form-signin {
   max-width: 380px;
   padding: 15px;

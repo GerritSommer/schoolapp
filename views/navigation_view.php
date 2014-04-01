@@ -3,8 +3,13 @@
     <ul class="nav navbar-nav">
       <li><a href="index.php">Startseite</a></li>
       <li><a href="?action=quiz">Quiz</a></li>
-      <li><a href="?action=users">Users</a></li>
-      <li><a href="?action=new_user">New User</a></li>
+      <li class="dropdown">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu navbar-inverse">
+          <li><a href="?action=users">Users</a></li>
+          <li><a href="?action=new_user">New User</a></li>
+        </ul>
+      </li>
     </ul>
     <ul class="nav navbar-nav pull-right">
       <li><a class="glyphicon glyphicon-user" href="index.php"></a></li>
