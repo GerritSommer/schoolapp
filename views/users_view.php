@@ -8,10 +8,10 @@
     <tbody>
     <?php foreach ($users as $user): ?>
         <tr>
-        <td><?php echo $user->getId(); ?></td>
-        <td><?php echo $user->getName(); ?></td>
-        <td><?php echo $user->getRole(); ?></td>
-        <td><a href="?action=user&user_id=<?php echo $user->getId(); ?>">details</a></td>
+        <td><?php echo $user->id; ?></td>
+        <td><?php echo $user->name; ?></td>
+        <td><?php echo $user->role; ?></td>
+        <td><a href="?action=user&user_id=<?php echo $user->id; ?>">details</a></td>
         </tr>
     <?php endforeach; ?>
     </tbody>

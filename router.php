@@ -1,6 +1,6 @@
 <?php
 require_once 'includes/connection.php';
-require_once 'models/user_model.php';
+require_once 'models/user.php';
 
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : null;
 
@@ -24,7 +24,7 @@ switch($action) {
     $view = 'login';
     break;
   case 'users':
-    $users = User::all();
+    $users = User::find('all');
     $view = 'users';
     break;
   case 'user':

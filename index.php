@@ -7,6 +7,15 @@
 <!DOCTYPE html>
 <html>
   <!-- include header -->
+  <?php
+  require_once 'includes/php-activerecord/ActiveRecord.php';
+  ActiveRecord\Config::initialize(function($cfg)
+  {
+      $cfg->set_model_directory('models');
+      $cfg->set_connections(array(
+          'development' => 'mysql://root@localhost/schoolapp'));
+  });
+  ?>
   <?php require_once 'includes/header.php' ?>
 <body id="fullscreen_bg" class="fullscreen_bg">
   <?php require_once 'views/navigation_view.php'; ?>
