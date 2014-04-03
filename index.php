@@ -24,7 +24,7 @@
   ?>
   <?php require_once 'includes/header.php' ?>
 <body id="fullscreen_bg" class="fullscreen_bg">
-  <?php require_once 'views/navigation_view.php'; ?>
+
   <?php require_once 'router.php'; ?>
 
   <script src="js/jquery.min.js"></script>

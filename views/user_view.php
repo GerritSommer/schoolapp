@@ -1,3 +1,4 @@
+<?php $user = $data['user']; ?>
 <div class="container main">
   <h2>home</h2>
   <div class="well">

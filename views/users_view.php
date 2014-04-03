@@ -7,7 +7,7 @@
       </tr>
     </thead>
     <tbody>
-    <?php foreach ($users as $user): ?>
+    <?php foreach ($data['users'] as $user): ?>
         <tr>
         <td><?php echo $user->id; ?></td>
         <td><?php echo $user->name; ?></td>

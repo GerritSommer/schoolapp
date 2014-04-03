@@ -8,7 +8,6 @@ if(isset($_POST['name']) and isset($_POST['password'])) {
   $result = $mysqli->query($sql);
   $row = $result->fetch_assoc();
 
-
   if($row['password'] === $password) {
     $_SESSION['user_id'] = $row['id'];
   }

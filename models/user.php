@@ -1,7 +1,6 @@
 <?php
 class User extends ActiveRecord\Model {
   static $attr_protected = array('password');
-
   static $validates_presence_of = array(array('name'), array('role'));
 
   public function __toString() { return 'user'. $this->name; }
