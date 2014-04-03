@@ -1,48 +1,33 @@
 <?php
 require_once 'includes/connection.php';
 require_once 'models/user.php';
+require_once 'includes/helpers.php';
 
-$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : null;
+$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'home';
 
 if (isset($_SESSION['user_id']) and is_numeric($_SESSION['user_id'])) {
   switch($action) {
-    case 'quiz':
-      $view = 'quiz';
-      break;
-    case 'login':
-      $view = 'login';
-      break;
-    case 'logout':
-      require_once 'controllers/logout_controller.php';
-      $view = 'login';
-      break;
     case 'users':
       $users = User::find('all');
-      $view = 'users';
       break;
     case 'user':
-      if(is_numeric($_REQUEST['user_id'])) {
-        $user = User::find($_REQUEST['user_id']);
-      }
-      $view = 'user';
-      break;
-    case 'new_user';
-      $view = 'new_user';
+      if(is_numeric($_REQUEST['user_id'])) { $user = User::find($_REQUEST['user_id']); }
       break;
     default:
-      $view = 'home';
       break;
   }
 } else {
+  # if the user is not logged in, he needs to sign in
   switch($action) {
     case 'post_login':
       require_once 'controllers/login_controller.php';
-      isset($_SESSION['user_id']) ? $view = 'home' : $view = 'login';
+      isset($_SESSION['user_id']) ? $action = 'home' : $action = 'login';
       break;
     default:
-      $view = 'login';
+      $action = "login";
       break;
   }
 }
-require_once 'views/'. $view .'_view.php';
+Helper::loadController($action);
+Helper::loadView($action);
 ?>
