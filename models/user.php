@@ -8,11 +8,11 @@ class User extends ActiveRecord\Model {
   public function set_password($plaintext) { $this->assign_attribute('password', md5($plaintext)); }
 }
 
-class Teacher extend User {
+class Teacher extends User {
   static $table_name = 'users';
 }
 
-class Student extend User {
+class Student extends User {
   static $table_name = 'users';
 }
 ?>

@@ -1,13 +1,14 @@
+
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       <li><a href="index.php">Startseite</a></li>
       <li><a href="?action=quiz">Quiz</a></li>
       <li class="dropdown">
-        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Benutzerverwaltung <b class="caret"></b></a>
         <ul class="dropdown-menu navbar-inverse">
-          <li><a href="?action=users">Users</a></li>
-          <li><a href="?action=new_user">New User</a></li>
+          <li><a href="?action=users">Benutzerliste</a></li>
+          <li><a href="?action=new_user">Benutzer erstellen</a></li>
         </ul>
       </li>
     </ul>
