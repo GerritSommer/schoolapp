@@ -15,6 +15,8 @@
       $cfg->set_connections(array(
           'development' => 'mysql://root@localhost/schoolapp'));
   });
+  
+  dghfhfgh
   ?>
   <?php require_once 'includes/header.php' ?>
 <body id="fullscreen_bg" class="fullscreen_bg">
