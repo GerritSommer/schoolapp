@@ -1,5 +1,5 @@
 <?php
-  class Home_controller {
-    public function index() {}
+  class Home_controller extends app_controller{
+
   }
 ?>

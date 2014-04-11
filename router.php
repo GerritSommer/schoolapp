@@ -1,5 +1,6 @@
 <?php
-require_once 'models/user.php';
+// require_once 'models/user.php'; Moved to controllers
+
 require_once 'includes/autoloader.php';
 
 $route = isset($_REQUEST['route']) ? $_REQUEST['route'] : 'home';

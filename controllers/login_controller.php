@@ -1,6 +1,5 @@
 <?php
-class Login_controller {
-  public function index(){}
+class Login_controller  extends app_controller {
 
   public function logout(){
     session_unset();

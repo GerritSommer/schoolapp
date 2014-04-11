@@ -1,6 +1,9 @@
 <?php
 
-class Users_controller {
+class Users_controller extends app_controller {
+  
+  private $models = array('user');
+  
   public function index() {
     $data['users'] = User::find('all');
     return $data;

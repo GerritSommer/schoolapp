@@ -8,7 +8,7 @@
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">Quiz <b class="caret"></b></a>
           <ul class="dropdown-menu navbar-inverse">
             <li><a href="?route=quizes">Quize</a></li>
-            <li><a href="?route=users&method=create_form">Quiz erstellen</a></li>
+            <li><a href="?route=quizes&method=create">Quiz erstellen</a></li>
           </ul>
         </li>
         <li class="dropdown">
