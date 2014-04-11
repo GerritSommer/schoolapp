@@ -15,7 +15,7 @@ nav.navbar {
 }
 
 .fullscreen_bg {
-  position: fixed;
+  background-position: top center;
   top: 0;
   right: 0;
   bottom: 0;
