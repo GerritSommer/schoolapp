@@ -1,4 +1,5 @@
 <?php
+//Rechner Home test
 // require_once 'models/user.php'; Moved to controllers
 
 require_once 'includes/autoloader.php';
