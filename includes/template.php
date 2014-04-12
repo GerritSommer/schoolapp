@@ -20,7 +20,7 @@
 	</head>
 	<body id="fullscreen_bg" class="fullscreen_bg">
 		<?php
-		if(isset($data['route_redirect'])) { $view_name = $data['route_redirect']; }
+		$view_name = (isset($data['route_redirect'])?$data['route_redirect']:$view_name);
 		require_once 'views/navigation_view.php';
 		$helper->loadView(lcfirst($view_name), $data);
 		
