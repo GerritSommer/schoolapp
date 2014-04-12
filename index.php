@@ -1,5 +1,15 @@
 <?php
   /*
+   * Enable PHP-Shorttags [<?=$val?><?..code..?>]
+   */
+  ini_set('short_open_tag', 'On');
+
+  /*
+   * Init Session
+   */
+  session_start();
+
+  /*
    * Rquire Application Configuration
    */
   require_once 'config/app_config.php';
@@ -16,12 +26,12 @@
     Helper::updateDatabase();
   }
 
-  ini_set('display_errors',1);
-  ini_set('display_startup_errors',1);
-  error_reporting(-1);
+  if(DEBUG){
+    ini_set('display_errors',1);
+    ini_set('display_startup_errors',1);
+    error_reporting(-1);
+  }
   
-  session_start();
-
   if (isset($_SESSION['user_id']) and is_numeric($_SESSION['user_id'])) {
     $user_is_logged_in = true;
   } else {
