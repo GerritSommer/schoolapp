@@ -16,6 +16,20 @@
         $this->view = true;
       }
     }
+
+    public static function updateDatabase(){
+      $sqlFile = 'sql/schoolapp.sql';
+      $sql = file_get_contents($sqlFile);
+      $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWD, DB_NAME);
+      $mysqli->query($sql);
+    }
+
+    /*
+     * Load APP Config file
+     */
+    public static function loadConfig(){
+      require_once 'config/app_config.php';
+    }
   }
   $helper = new Helper();
  ?>

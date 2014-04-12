@@ -15,7 +15,7 @@ class Login_controller  extends app_controller {
     if(isset($_POST['name']) and isset($_POST['password'])) {
       $username = $_POST['name'];
       $password = $_POST['password'];
-      $mysqli = new mysqli('localhost', 'root', '', 'schoolapp');
+      $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWD, DB_NAME);
       $sql = 'SELECT id, name, password FROM users WHERE name="'. $username .'"';
       $result = $mysqli->query($sql);
       $row = $result->fetch_assoc();

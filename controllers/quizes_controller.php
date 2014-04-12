@@ -1,6 +1,6 @@
 <?php
 class Quizes_controller extends app_controller {
-  private $models = array('quiz', 'category');
+  protected $models = array('quiz', 'category');
   
   private $tables = array(
               "id"            => array("/^[0-9]+$/", true), 
