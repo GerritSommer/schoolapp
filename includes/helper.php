@@ -3,6 +3,9 @@
     public $view;
     public $controller;
 
+    /*
+     * Läd den gewünschten controller wenn er existiert
+     */
     public function loadController($controller) {
       if(file_exists('controllers/'. $controller .'_controller.php') && $this->controller == false) {
         require_once 'controllers/'. $controller .'_controller.php';
@@ -10,6 +13,10 @@
         return $data;
       }
     }
+
+    /*
+     * Läd den gewünschten View wenn er existiert
+     */
     public function loadView($view, $data = false) {
       if(file_exists('views/'. $view .'_view.php') && $this->view == false) {
         require_once 'views/'. $view .'_view.php';
@@ -17,6 +24,9 @@
       }
     }
 
+    /*
+     * Gibt session relevanten content zurück
+     */
     public function checkSession($str,$logedIn = true){
       if(isset($_SESSION['user_id']) && is_numeric($_SESSION['user_id']) && $logedIn){
         return $str;
@@ -26,6 +36,9 @@
       return false;
     }
 
+    /*
+     * Aktuallisiert die Datenbank bei neuen Änderungen
+     */
     public static function updateDatabase(){
       $sqlFile = 'sql/schoolapp.sql';
       $sql = file_get_contents($sqlFile);
@@ -40,5 +53,4 @@
       require_once 'config/app_config.php';
     }
   }
-  $helper = new Helper();
- ?>
+?>
