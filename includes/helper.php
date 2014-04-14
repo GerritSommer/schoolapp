@@ -4,17 +4,26 @@
     public $controller;
 
     public function loadController($controller) {
-      if(file_exists('controllers/'. $controller .'_controller.php') and $this->controller == false) {
+      if(file_exists('controllers/'. $controller .'_controller.php') && $this->controller == false) {
         require_once 'controllers/'. $controller .'_controller.php';
         $this->controller = true;
         return $data;
       }
     }
     public function loadView($view, $data = false) {
-      if(file_exists('views/'. $view .'_view.php') and $this->view == false) {
+      if(file_exists('views/'. $view .'_view.php') && $this->view == false) {
         require_once 'views/'. $view .'_view.php';
         $this->view = true;
       }
+    }
+
+    public function checkSession($str,$logedIn = true){
+      if(isset($_SESSION['user_id']) && is_numeric($_SESSION['user_id']) && $logedIn){
+        return $str;
+      }elseif($logedIn == false && !isset($_SESSION['user_id'])){
+        return $str;
+      }
+      return false;
     }
 
     public static function updateDatabase(){

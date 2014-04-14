@@ -25,7 +25,7 @@
             Student
           </label>
         </div>
-        <button class="btn btn-lg btn-block btn-success" type="submit">
+        <button class="btn pull-right btn-success" type="submit">
           Speichern
         </button>
       </form>
