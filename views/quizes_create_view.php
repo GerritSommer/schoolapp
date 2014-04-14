@@ -14,6 +14,7 @@
           <label for="">Hint</label>
         </div>
         <div class="form-group float-label-control">
+        Kategorie: 
           <select name="id_category" >
             <?php
               foreach ($data['categorys'] as $category){
@@ -21,10 +22,10 @@
               }
             ?>
           </select>
+          <button class="btn pull-right btn-success" type="submit">
+            Speichern
+          </button>
         </div>
-        <button class="btn btn-lg btn-block btn-success" type="submit">
-          Speichern
-        </button>
       </form>
     </div>
   </div>

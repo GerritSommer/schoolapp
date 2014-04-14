@@ -36,3 +36,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `password`, `role`) VALUES
 (1, 'admin', 'pw', 'admin');
+
+INSERT INTO `categories` (`id`, `name`, `date_created`) VALUES
+(1, 'test1', 1397467867),
+(2, 'test2', 1397467867);

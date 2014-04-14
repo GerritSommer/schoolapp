@@ -28,9 +28,9 @@
           $data['route_redirect'] = 'home_index';
         }
       }
-      $data['quiz'] = Quiz::find($_POST['quiz_id']);
+      $data['quiz']     = Quiz::find($_POST['quiz_id']);
       $data['category'] = Category::find($data['quiz']->id_category);
-      $data['answers'] = Answer::find('all', array('conditions' => "quiz_id = ".$data['quiz']->id));
+      $data['answers']  = Answer::find('all', array('conditions' => "quiz_id = ".$data['quiz']->id));
       return $data;
     }
   }
