@@ -1,6 +1,6 @@
 <?php
 class Quizes_controller extends app_controller {
-  protected $models = array('quiz', 'category');
+  protected $models = array('quiz', 'category', 'answer');
   
   private $tables = array(
               "id"            => array("/^[0-9]+$/", true), 
@@ -11,8 +11,14 @@ class Quizes_controller extends app_controller {
               "date_created"  => false);
  
   public function index() {
-    $data['quizzes'] = Quiz::find('all');
+    $quizzes = Quiz::find('all');
     $data['categories'] = Category::find('all');
+    
+    foreach($quizzes as $key => $quizz){
+      //var_dump($quizz->id.'<=');
+      $data['quizzes'][$key]['quizz'] = $quizz;
+      $data['quizzes'][$key]['answers'] =  Answer::find('all',array('conditions' => "quiz_id = ".$quizz->id));
+    }
     return $data;
   }
   
