@@ -4,10 +4,19 @@
       <ul class="nav navbar-nav">
         <!--Home-->
         <li><a href="index.php">Startseite</a></li>
-        <!--Questions-->
         <?=$helper->checkSession('
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">Module <b class="caret"></b></a>
+            <ul class="dropdown-menu navbar-inverse">
+              <li><a href="?route=modules">Module</a></li>
+              <li><a href="?route=questions&method=create">Frage erstellen</a></li>
+            </ul>
+          </li>
+        ',true)?>
+        <!--Questions-->
+        <?=$helper->checkSession('
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Fragen <b class="caret"></b></a>
             <ul class="dropdown-menu navbar-inverse">
               <li><a href="?route=questions">Fragen</a></li>
               <li><a href="?route=questions&method=create">Frage erstellen</a></li>

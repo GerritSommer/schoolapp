@@ -1,6 +1,6 @@
 <?php
 class Questions_controller extends app_controller {
-  protected $models = array('question', 'category', 'answer');
+  protected $models = array('question', 'module', 'answer');
 
   public function index() {
     $data['questions'] = Question::find('all');
@@ -15,7 +15,7 @@ class Questions_controller extends app_controller {
       $question->save();
       $data['route_redirect'] = 'home_index';
     } else {
-      $data['categories'] = Category::find('all');
+      $data['modules'] = Module::find('all');
     }
     return $data;
   }

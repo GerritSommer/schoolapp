@@ -13,7 +13,7 @@
         <div class="box-shad question-card">
           <h4>
             <span>Frage</span>
-            <small class="pull-right"><?php echo $question->category->name; ?> <?php echo date('d.m.Y H:i', $question->date_created); ?></small> <br>
+            <small class="pull-right"><?php echo $question->module->name; ?> <?php echo date('d.m.Y H:i', $question->date_created); ?></small> <br>
 
 <!--             <small><a class="pull-right" href="?route=questions&method=delete&question_id=<?= $question->id ?>">
                 Anworten anzeigen

@@ -1,6 +1,6 @@
 <?php
   class Answers_controller extends app_controller{
-    protected $models = array('answer','category','question');
+    protected $models = array('answer','module','question');
 
 
     public function create(){

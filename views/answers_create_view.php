@@ -2,7 +2,7 @@
 <div class="container main">
   <div class="row">
     <div class="col-sm-8">
-      <h4><small class="pull-right"><?php echo $question->category->name; ?></small></h4>
+      <h4><small class="pull-right"><?php echo $question->module->name; ?></small></h4>
       <p><?php echo $question->question; ?></p>
       <small> <?php echo $question->hint; ?></small>
       <div class="clearfix"></div>

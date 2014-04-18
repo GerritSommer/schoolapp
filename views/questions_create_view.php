@@ -15,10 +15,10 @@
         </div>
         <div class="form-group float-label-control">
         Kategorie:
-          <select name="category_id" >
+          <select name="module_id" >
             <?php
-              foreach ($data['categories'] as $category){
-                echo '<option value="'. $category->id .'">'. $category->name . '</option>';
+              foreach ($data['modules'] as $module){
+                echo '<option value="'. $module->id .'">'. $module->name . '</option>';
               }
             ?>
           </select>
