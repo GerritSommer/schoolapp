@@ -1,26 +1,19 @@
+<?php $question = $data['question']; ?>
 <div class="container main">
   <div class="row">
-    <div class=" well">
-      <div class="span6">
-        <div class="span6">
-          <?php echo $data['quiz']->question; ?>
-        </div>
-        <div class="span6">
-          <?php echo $data['quiz']->hint; ?>
-        </div>
-        <div class="span12">
-          <?php echo $data['quiz']->category->name; ?> <?php echo date('d.m.Y H:i', $data['quiz']->date_created); ?>
-        </div>
-      </div>
+    <div class="col-sm-8">
+      <h4><small class="pull-right"><?php echo $question->category->name; ?></small></h4>
+      <p><?php echo $question->question; ?></p>
+      <small> <?php echo $question->hint; ?></small>
+      <div class="clearfix"></div>
     </div>
-  </div>
-  <div class="row">
+    <div class="col-sm4"></div>
+
     <div class="col-sm-8">
       <h4 class="page-header">New Answer(s)</h4>
       <form role="form" action="?route=answers&method=create" method="post">
-        <input type="hidden" name="quiz_id" value="<?php echo $data['quiz']->id; ?>" />
+        <input type="hidden" name="question_id" value="<?php echo $data['question']->id; ?>" />
         <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
-
         <div class="form-group float-label-control">
           <textarea class="" placeholder="Answer" name="answer"></textarea>
           <label for="">Answer</label>
@@ -34,5 +27,7 @@
         </button>
       </form>
     </div>
+    <div class="col-sm4"></div>
+
   </div>
 </div>

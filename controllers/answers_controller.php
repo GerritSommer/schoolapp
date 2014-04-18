@@ -1,6 +1,6 @@
 <?php
   class Answers_controller extends app_controller{
-    protected $models = array('answer','category','quiz');
+    protected $models = array('answer','category','question');
 
 
     public function create(){
@@ -9,10 +9,11 @@
         $answer = new Answer($_POST);
         $answer->save();
         $data['route_redirect'] = 'home_index';
+      } else {
+        $data['question']     = Question::find($_GET['question_id']);
+        // $data['category'] = Category::find($data['quiz']->id_category);
+        // $data['answers']  = Answer::find('all', array('conditions' => "quiz_id = ".$data['quiz']->id));
       }
-      $data['quiz']     = Quiz::find($_GET['quiz_id']);
-      // $data['category'] = Category::find($data['quiz']->id_category);
-      // $data['answers']  = Answer::find('all', array('conditions' => "quiz_id = ".$data['quiz']->id));
       return $data;
     }
   }
