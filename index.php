@@ -1,4 +1,5 @@
 <?php
+
   /*
    * Enable PHP-Shorttags [<?=$val?><?..code..?>]
    */
@@ -20,7 +21,7 @@
   require_once 'includes/autoloader.php';
 
   /*
-   * Autoinstall Databse
+   * Autoinstall Database
    */
   if(INSTALL){
     Helper::updateDatabase();
@@ -31,7 +32,7 @@
     ini_set('display_startup_errors',1);
     error_reporting(-1);
   }
-  
+
   if (isset($_SESSION['user_id']) and is_numeric($_SESSION['user_id'])) {
     $user_is_logged_in = true;
   } else {
@@ -48,22 +49,22 @@
       $cfg->set_connections(array(
           'development' => 'mysql://'.DB_USER.'@'.DB_HOST.'/'.DB_NAME));
   });
-  
+
   /*
    * Routing
    */
-  $route = isset($_REQUEST['route']) ? $_REQUEST['route'] : 'home';
-  $method = isset($_REQUEST['method']) ? $_REQUEST['method'] : 'index';
+  $route = isset($_GET['route']) ? $_GET['route'] : 'home';
+  $method = isset($_GET['method']) ? $_GET['method'] : 'index';
 
   $controller_name = $route."_controller";
   $view_name = $route."_".$method;
-  
+
   $controller = new $controller_name();
   $helper = new Helper();
 
   $data = $controller->$method();
 
-  /* 
+  /*
    * Require Template (HTML+Style)
    */
   require_once 'includes/template.php';

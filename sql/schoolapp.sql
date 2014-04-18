@@ -1,4 +1,8 @@
-CREATE TABLE IF NOT EXISTS `answer` (
+DROP DATABASE IF EXISTS schoolapp;
+CREATE DATABASE schoolapp;
+USE schoolapp;
+
+CREATE TABLE IF NOT EXISTS `answers` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `quiz_id` int(255) NOT NULL,
   `user_id` int(255) NOT NULL,
@@ -6,7 +10,10 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `kind` tinyint(1) NOT NULL,
   `date_created` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+INSERT INTO answers (id, user_id, quiz_id, answer, kind, date_created) VALUES
+(1,1,1,'huh!', 1, 1397467867);
 
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
@@ -15,15 +22,22 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+INSERT INTO `categories` (`id`, `name`, `date_created`) VALUES
+(1, 'test1', 1397467867),
+(2, 'test2', 1397467867);
+
 CREATE TABLE IF NOT EXISTS `quizzes` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
-  `id_user` int(255) NOT NULL,
-  `id_category` int(255) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `category_id` int(255) NOT NULL,
   `question` text NOT NULL,
   `hint` text NOT NULL,
   `date_created` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+INSERT INTO quizzes (id, user_id, category_id, question, hint, date_created) VALUES
+(1,1,1,'huh?', 'ugfu', 1397467867);
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(4) NOT NULL AUTO_INCREMENT,
@@ -37,6 +51,4 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `name`, `password`, `role`) VALUES
 (1, 'admin', 'pw', 'admin');
 
-INSERT INTO `categories` (`id`, `name`, `date_created`) VALUES
-(1, 'test1', 1397467867),
-(2, 'test2', 1397467867);
+

@@ -1,9 +1,9 @@
 <?php
 
 class Users_controller extends app_controller {
-  
+
   protected $models = array('user');
-  
+
   public function index() {
     $data['users'] = User::find('all');
     return $data;

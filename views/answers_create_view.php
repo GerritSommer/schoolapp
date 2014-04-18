@@ -9,7 +9,7 @@
           <?php echo $data['quiz']->hint; ?>
         </div>
         <div class="span12">
-          <?php echo $data['category']->name; ?> <?php echo date('d.m.Y H:i', $data['quiz']->date_created); ?>
+          <?php echo $data['quiz']->category->name; ?> <?php echo date('d.m.Y H:i', $data['quiz']->date_created); ?>
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
       <form role="form" action="?route=answers&method=create" method="post">
         <input type="hidden" name="quiz_id" value="<?php echo $data['quiz']->id; ?>" />
         <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
-        
+
         <div class="form-group float-label-control">
           <textarea class="" placeholder="Answer" name="answer"></textarea>
           <label for="">Answer</label>
