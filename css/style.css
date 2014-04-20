@@ -9,6 +9,17 @@ nav.navbar {
   position: relative;
 }
 
+.answers-list {
+  list-style-type: none;
+}
+
+.color-green {
+  color: #419641;
+}
+.color-red {
+  color: #d9534f;
+}
+
 .container.main {
   padding: 10px;
   margin-bottom: 40px;
@@ -126,4 +137,15 @@ dl dd {
   box-shadow: 1px 1px 0 rgba(0,0,0,.2);
   border: 1px solid #ddd;
   padding: 10px;
+}
+
+.modules-list {
+
+}
+ul.modules-list li small {
+  padding-left: 5px;
+}
+ul.modules-list li {
+  list-style-type: none;
+  padding: 4px 0;
 }

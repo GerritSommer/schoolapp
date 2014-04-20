@@ -26,7 +26,18 @@ class Questions_controller extends app_controller {
       $data['route_redirect'] = 'home_index';
       return $data;
     }
-
+  }
+  public function update() {
+    if(isset($_GET['question_id'])) {
+      $question = Question::find($_GET['question_id']);
+      $params = $_POST;
+      unset($params['id']);
+      $question->update_attributes($params);
+      $data['question'] = Question::find($_GET['question_id']);
+    } else {
+      $data['question'] = Question::find($_GET['question_id']);
+    }
+    return $data;
   }
 }
 ?>

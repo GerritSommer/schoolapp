@@ -1,25 +1,47 @@
 <div class="container main">
   <h2>Module</h2>
-  <table class="table">
-    <p>
-      Überarbeiten... Teilnehmer, Inhalte etc... keine Tabelle!
-    </p>
-    <thead>
-      <tr>
-        <th>#</th> <th>Name</th><th>löschen</th><th>bearbeiten</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($data['modules'] as $module): ?>
-        <tr>
-        <td><?php echo $module->id; ?></td>
-        <td><?php echo $module->name; ?></td>
+  <p>
+    Überarbeiten... Teilnehmer, Inhalte etc... keine Tabelle!
+  </p>
 
-        <td><a href="?route=users&method=show&id=<?=$module->id?>">details</a></td>
-        <td><a href="?route=users&method=delete&id=<?=$module->id?>">löschen</a></td>
-        <td><a href="?route=users&method=update&id=<?=$module->id?>">bearbeiten</a></td>
-        </tr>
-    <?php endforeach; ?>
-    </tbody>
-  </table>
+  <div class="row">
+
+    <ul class="modules-list">
+      <?php foreach ($data['modules'] as $module): ?>
+        <li>
+        <div class="col-md-4">
+            <span><?= $module->id; ?></span>
+            <span><?= $module->name; ?></span>
+          </div>
+          <div class="col-md-6">
+            <small><a href="?route=modules&method=show&module_id=<?=$module->id?>">details</a></small>
+            <small><a href="?route=modules&method=delete&module_id=<?=$module->id?>">löschen</a></small>
+            <small><a href="?route=modules&method=update&module_id=<?=$module->id?>">bearbeiten</a></small>
+          </div>
+        <?php endforeach; ?>
+      </li>
+    </ul>
+
+  </div>
+
+
 </div>
+
+<!-- <h4>
+  <span>Frage</span>
+  <small class="pull-right"><?php echo $question->module->name; ?> <?php echo date('d.m.Y H:i', $question->date_created); ?></small> <br>
+
+
+  <small class="pull-right"><a class="pull-right text-danger" href="?route=questions&method=delete&question_id=<?= $question->id ?>">Frage löschen</a></small>
+</h4>
+<p><?php echo $question->question; ?></p>
+<small> <?php echo $question->hint; ?></small>
+<div><a class="btn btn-primary pull-right" href="?route=answers&method=create&question_id=<?= $question->id ?>">Antwort hinzufügen</a></div>
+<div class="clearfix"></div>
+<h4>Antworten</h4>
+<ul>
+  <?php foreach($question->answers as $answer): ?>
+    <li><?= $answer->answer ?></li>
+  <?php endforeach ?>
+</ul>
+ -->
