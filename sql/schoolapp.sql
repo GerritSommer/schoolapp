@@ -18,13 +18,14 @@ INSERT INTO answers (id, user_id, question_id, answer, kind, date_created) VALUE
 CREATE TABLE IF NOT EXISTS `modules` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
+  `description` text NOT NuLL,
   `date_created` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-INSERT INTO `modules` (`id`, `name`, `date_created`) VALUES
-(1, 'test1', 1397467867),
-(2, 'test2', 1397467867);
+INSERT INTO `modules` (`id`, `name`, `description`, `date_created`) VALUES
+(1, 'test1', 'eine Beschreibung', 1397467867),
+(2, 'test2', 'noch eine Beschreibung', 1397467867);
 
 CREATE TABLE IF NOT EXISTS `questions` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
