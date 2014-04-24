@@ -9,7 +9,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">Module <b class="caret"></b></a>
             <ul class="dropdown-menu navbar-inverse">
               <li><a href="?route=modules">Module</a></li>
-              <li><a href="?route=questions&method=create">Frage erstellen</a></li>
+              <li><a href="?route=modules&method=create">Modul erstellen</a></li>
             </ul>
           </li>
         ',true)?>

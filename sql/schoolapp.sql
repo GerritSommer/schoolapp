@@ -18,6 +18,7 @@ INSERT INTO answers (id, user_id, question_id, answer, kind, date_created) VALUE
 CREATE TABLE IF NOT EXISTS `modules` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
+  `user_id` int(255) NOT NULL,
   `description` text NOT NuLL,
   `date_created` int(11) NOT NULL,
   PRIMARY KEY (`id`)

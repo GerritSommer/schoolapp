@@ -1,20 +1,17 @@
 <div class="container main">
   <h2>Module</h2>
-  <p>
-    Überarbeiten... Teilnehmer, Inhalte etc... keine Tabelle!
-  </p>
 
   <div class="row">
 
     <ul class="modules-list">
       <?php foreach ($data['modules'] as $module): ?>
         <li>
-        <div class="col-md-4">
-            <span><?= $module->id; ?></span>
-            <span><?= $module->name; ?></span>
+          <div class="col-md-4">
+          <a href="?route=modules&method=show&module_id=<?=$module->id?>"><?= $module->name; ?></a>
+
           </div>
           <div class="col-md-6">
-            <small><a href="?route=modules&method=show&module_id=<?=$module->id?>">details</a></small>
+
             <small><a href="?route=modules&method=delete&module_id=<?=$module->id?>">löschen</a></small>
             <small><a href="?route=modules&method=update&module_id=<?=$module->id?>">bearbeiten</a></small>
           </div>
@@ -23,7 +20,6 @@
     </ul>
 
   </div>
-
 
 </div>
 
