@@ -15,5 +15,11 @@ abstract class app_controller {
   }
   
   public function index() {}
+
+  private function getVars($array){
+    foreach($array as $key => $val){
+      ${$key} = $val;
+    }
+  }
 }
 ?>
