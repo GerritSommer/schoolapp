@@ -1,8 +1,7 @@
 DROP DATABASE IF EXISTS schoolapp;
 CREATE DATABASE schoolapp;
-USE schoolapp;
 
-CREATE TABLE IF NOT EXISTS `answers` (
+CREATE TABLE IF NOT EXISTS schoolapp.answers (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `question_id` int(255) NOT NULL,
   `user_id` int(255) NOT NULL,
@@ -12,10 +11,10 @@ CREATE TABLE IF NOT EXISTS `answers` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
-INSERT INTO answers (id, user_id, question_id, answer, kind, date_created) VALUES
-(1,1,1,'huh!', 1, 1397467867);
+INSERT INTO schoolapp.answers (id, user_id, question_id, answer, kind, date_created) VALUES
+(1,1,1,'huh!', 1, UNIX_TIMESTAMP());
 
-CREATE TABLE IF NOT EXISTS `modules` (
+CREATE TABLE IF NOT EXISTS schoolapp.modules (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
   `user_id` int(255) NOT NULL,
@@ -24,11 +23,11 @@ CREATE TABLE IF NOT EXISTS `modules` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-INSERT INTO `modules` (`id`, `name`, `description`, `date_created`) VALUES
-(1, 'test1', 'eine Beschreibung', 1397467867),
-(2, 'test2', 'noch eine Beschreibung', 1397467867);
+INSERT INTO schoolapp.modules (`id`, `name`, `description`, `date_created`) VALUES
+(1, 'test1', 'eine Beschreibung', UNIX_TIMESTAMP()),
+(2, 'test2', 'noch eine Beschreibung', UNIX_TIMESTAMP());
 
-CREATE TABLE IF NOT EXISTS `questions` (
+CREATE TABLE IF NOT EXISTS schoolapp.questions (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `user_id` int(255) NOT NULL,
   `module_id` int(255) NOT NULL,
@@ -38,10 +37,10 @@ CREATE TABLE IF NOT EXISTS `questions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
-INSERT INTO questions (id, user_id, module_id, question, hint, date_created) VALUES
-(1,1,1,'huh?', 'ugfu', 1397467867);
+INSERT INTO schoolapp.questions (id, user_id, module_id, question, hint, date_created) VALUES
+(1,1,1,'huh?', 'ugfu', UNIX_TIMESTAMP());
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE IF NOT EXISTS schoolapp.users (
   `id` int(4) NOT NULL AUTO_INCREMENT,
   `name` varchar(10) NOT NULL,
   `password` varchar(17) NOT NULL,
@@ -50,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
-INSERT INTO `users` (`id`, `name`, `password`, `role`) VALUES
+INSERT INTO schoolapp.users (`id`, `name`, `password`, `role`) VALUES
 (1, 'admin', 'pw', 'admin');
 
 

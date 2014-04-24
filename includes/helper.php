@@ -43,7 +43,13 @@
       $sqlFile = 'sql/schoolapp.sql';
       $sql = file_get_contents($sqlFile);
       $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWD, DB_NAME);
-      $mysqli->query($sql);
+      try{
+        $query = $mysqli->query($sql);
+        //var_dump();
+        //echo $mysqli->error;
+      }catch(Exeption $e){
+        echo $e;
+      }
     }
 
     /*
