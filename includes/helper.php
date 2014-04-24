@@ -19,6 +19,10 @@
      */
     public function loadView($view, $data = false) {
       if(file_exists('views/'. $view .'_view.php') && $this->view == false) {
+        /*
+         * Cast array to vars
+         */
+        foreach($data as $key => $val){${$key} = $val;}
         require_once 'views/'. $view .'_view.php';
         $this->view = true;
       }
