@@ -28,12 +28,13 @@ class Questions_controller extends app_controller {
     }
   }
   public function update() {
-    if(isset($_GET['question_id'])) {
-      $question = Question::find($_GET['question_id']);
+    if(!empty($_POST)) {
       $params = $_POST;
+      $question = Question::find($params['id']);
       unset($params['id']);
       $question->update_attributes($params);
-      $data['question'] = Question::find($_GET['question_id']);
+      header("Location: index.php?route=modules&method=show&module_id=". $question->module->id);
+      die();
     } else {
       $data['question'] = Question::find($_GET['question_id']);
     }

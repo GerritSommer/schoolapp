@@ -31,7 +31,6 @@ class Users_controller extends app_controller {
       $data['user'] = User::find($_GET['id']);
     }
     return $data;
-
   }
   public function delete() {
     if(isset($_GET['id'])) {

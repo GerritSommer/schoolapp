@@ -1,5 +1,5 @@
-<?php
 
+<?php
   /*
    * Enable PHP-Shorttags [<?=$val?><?..code..?>]
    */

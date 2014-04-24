@@ -5,6 +5,8 @@
       <h4 class="page-header">Frage bearbeiten</h4>
       <form role="form" action="?route=questions&method=update&question_id=<?php $question->id ?>" method="post">
         <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
+        <input type="hidden" name="id" value="<?php echo $question->id; ?>" />
+
 
         <div class="form-group float-label-control">
           <label for="question">Frage</label>
