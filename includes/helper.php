@@ -72,6 +72,8 @@
         header("Location: ".$name.'.php'.$url);
         die('Security break');
       }
+
+      return false;
     }
 
     /*
