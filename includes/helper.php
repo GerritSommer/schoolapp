@@ -22,7 +22,9 @@
         /*
          * Cast array to vars
          */
-        foreach($data as $key => $val){${$key} = $val;}
+        if(isset($data)) {
+          foreach($data as $key => $val){${$key} = $val;}
+        }
         require_once 'views/'. $view .'_view.php';
         $this->view = true;
       }
