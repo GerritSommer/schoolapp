@@ -15,7 +15,19 @@
       return $data;
     }
 
-    // public ------------
+    public function update() {
+      if(!empty($_POST)) {
+        $params = $_POST;
+        $answer = Answer::find($params['id']);
+        unset($params['id']);
+        $answer->update_attributes($params);
+        header("Location: index.php?route=questions&method=update&question_id=". $answer->question->id);
+        die();
+      } else {
+        $data['answer'] = Answer::find($_GET['answer_id']);
+      }
+      return $data;
+    }
   }
 
 ?>
