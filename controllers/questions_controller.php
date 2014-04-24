@@ -13,7 +13,8 @@ class Questions_controller extends app_controller {
       $_POST['date_created'] = time();
       $question = new Question($_POST);
       $question->save();
-      $data['route_redirect'] = 'home_index';
+      header("Location: index.php?route=modules&method=show&module_id=". $question->module->id);
+      die();
     } else {
       $data['modules'] = Module::find('all');
     }
@@ -23,7 +24,8 @@ class Questions_controller extends app_controller {
     if(isset($_GET['question_id'])) {
       $question = Question::find($_GET['question_id']);
       $question->delete();
-      $data['route_redirect'] = 'home_index';
+      header("Location: index.php?route=modules&method=show&module_id=". $question->module->id);
+      die();
       return $data;
     }
   }
