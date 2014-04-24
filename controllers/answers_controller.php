@@ -7,8 +7,7 @@
         $_POST['date_created'] = time();
         $answer = new Answer($_POST);
         $answer->save();
-        header("Location: index.php?route=questions&method=update&question_id=". $answer->question->id);
-        die();
+        Helper::routRedirect('index',array('route'=>'questions','method'=>'update','question_id'=>$answer->question->id));
       } else {
         $data['question'] = Question::find($_GET['question_id']);
       }

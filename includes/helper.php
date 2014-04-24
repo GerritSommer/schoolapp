@@ -59,6 +59,22 @@
     }
 
     /*
+     * Manuelle Redirects incl. params
+     */
+    public static function routRedirect($name,$params){
+      $url = '';
+      if(!empty($params)){
+        foreach($params as $key => $val){
+          $url .= ($url==''?'?':'&').$key.'='.$val;
+        }
+      }
+      if(file_exists($name.'.php')){
+        header("Location: ".$name.'.php'.$url);
+        die('Security break');
+      }
+    }
+
+    /*
      * Load APP Config file
      */
     public static function loadConfig(){
