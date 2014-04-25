@@ -47,9 +47,19 @@ CREATE TABLE IF NOT EXISTS schoolapp.users (
   `role` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 INSERT INTO schoolapp.users (`id`, `name`, `password`, `role`) VALUES
 (1, 'admin', 'pw', 'admin');
+
+CREATE TABLE IF NOT EXISTS schoolapp.courses (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `user_id` int(255) NOT NULL,
+  `answer_id` int(255) NOT NULL,
+  `question_id` int(255) NOT NULL,
+  `module_id` int(255) NOT NULL,
+  `date_created` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 

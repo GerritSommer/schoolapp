@@ -25,7 +25,7 @@
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">Kurse <b class="caret"></b></a>
             <ul class="dropdown-menu navbar-inverse">
-              <li><a href="?route=modules&method=list_courses">Verfügbare Kurse</a></li>
+              <li><a href="?route=courses&method=index">Verfügbare Kurse</a></li>
             </ul>
           </li>
         ',array('all'))?>
