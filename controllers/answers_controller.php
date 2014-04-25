@@ -20,8 +20,7 @@
         $answer = Answer::find($params['id']);
         unset($params['id']);
         $answer->update_attributes($params);
-        header("Location: index.php?route=questions&method=update&question_id=". $answer->question->id);
-        die();
+        Helper::routRedirect('index',array('route'=>'questions','method'=>'update','question_id'=>$answer->question->id));
       } else {
         $data['answer'] = Answer::find($_GET['answer_id']);
       }

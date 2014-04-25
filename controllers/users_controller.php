@@ -16,7 +16,7 @@ class Users_controller extends app_controller {
     if(isset($_POST['name']) and isset($_POST['password']) and isset($_POST['role'])) {
       $user = new User(array('name' => $_POST['name'], 'password' => $_POST['password'], 'role' => $_POST['role']));
       $user->save();
-      $data['route_redirect'] = 'home_index';
+      Helper::routRedirect('index',array('route'=>'users','method'=>'index'));
     }
     return $data;
   }
@@ -27,6 +27,7 @@ class Users_controller extends app_controller {
       unset($params['id']);
       $user->update_attributes($params);
       $data['user'] = User::find($_POST['id']);
+      Helper::routRedirect('index',array('route'=>'users','method'=>'index'));
     } else {
       $data['user'] = User::find($_GET['id']);
     }
@@ -36,7 +37,7 @@ class Users_controller extends app_controller {
     if(isset($_GET['id'])) {
       $user = User::find($_GET['id']);
       $user->delete();
-      $data['route_redirect'] = 'home_index';
+      Helper::routRedirect('index',array('route'=>'users','method'=>'index'));
     }
     return $data;
   }

@@ -53,7 +53,7 @@
   /*
    * Routing
    */
-  $route = isset($_GET['route']) ? $_GET['route'] : 'home';
+  $route = (isset($_GET['route']) ? $_GET['route'] : (isset($_SESSION['user_id'])? 'home' : 'login' ));
   $method = isset($_GET['method']) ? $_GET['method'] : 'index';
 
   $controller_name = $route."_controller";

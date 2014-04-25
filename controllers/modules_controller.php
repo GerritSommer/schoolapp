@@ -15,7 +15,7 @@ class Modules_controller extends app_controller {
       $_POST['date_created'] = time();
       $question = new Module($_POST);
       $question->save();
-      $data['route_redirect'] = 'home_index';
+      Helper::routRedirect('index',array('route'=>'modules','method'=>'index'));
     } else {
       $data['modules'] = Module::find('all');
     }
@@ -28,7 +28,7 @@ class Modules_controller extends app_controller {
       unset($params['module_id']);
       $module->update_attributes($params);
       $data['module'] = Module::find($_POST['module_id']);
-      $data['route_redirect'] = 'home_index';
+      Helper::routRedirect('index',array('route'=>'modules','method'=>'index'));
     } else {
       $data['module'] = Module::find($_GET['module_id']);
     }
@@ -38,8 +38,21 @@ class Modules_controller extends app_controller {
     if(isset($_GET['module_id'])) {
       $user = Module::find($_GET['module_id']);
       $user->delete();
-      $data['route_redirect'] = 'home_index';
+      Helper::routRedirect('index',array('route'=>'modules','method'=>'index'));
     }
+    return $data;
+  }
+
+  /*
+   * Kursverwaltung
+   */
+  public function list_courses() {
+    $data = $this->index();
+    return $data;
+  }
+
+  public function start_course(){
+    $data['module'] = Module::find($_GET['module_id']);
     return $data;
   }
 }

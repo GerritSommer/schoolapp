@@ -18,26 +18,30 @@
      * Läd den gewünschten View wenn er existiert
      */
     public function loadView($view, $data = false) {
-      if(file_exists('views/'. $view .'_view.php') && $this->view == false) {
+      $path = explode('_',$view);
+
+      if(file_exists('views/'.$path[0]. '/' .$view .'_view.php') && $this->view == false) {
         /*
          * Cast array to vars
          */
         if(isset($data)) {
           foreach($data as $key => $val){${$key} = $val;}
         }
-        require_once 'views/'. $view .'_view.php';
+        require_once 'views/'.$path[0]. '/' .$view .'_view.php';
         $this->view = true;
+      }elseif(file_exists('views/'.$view.'_view.php') && $this->view == false){
+        require_once 'views/'.$view .'_view.php';
       }
     }
 
     /*
      * Gibt session relevanten content zurück
      */
-    public function checkSession($str,$logedIn = true){
-      if(isset($_SESSION['user_id']) && is_numeric($_SESSION['user_id']) && $logedIn){
-        return $str;
-      }elseif($logedIn == false && !isset($_SESSION['user_id'])){
-        return $str;
+    public function ifRoleIs($html,$roles = true){
+      if(isset($_SESSION['user_id']) && is_numeric($_SESSION['user_id']) && array_intersect($roles, array($_SESSION['role'],'all'))){
+        return $html;
+      }elseif($roles == false && !isset($_SESSION['user_id'])){
+        return $html;
       }
       return false;
     }

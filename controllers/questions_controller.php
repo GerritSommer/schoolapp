@@ -13,8 +13,7 @@ class Questions_controller extends app_controller {
       $_POST['date_created'] = time();
       $question = new Question($_POST);
       $question->save();
-      header("Location: index.php?route=modules&method=show&module_id=". $question->module->id);
-      die();
+      Helper::routRedirect('index',array('route'=>'modules','method'=>'show','module_id' => $question->module->id));
     } else {
       $data['modules'] = Module::find('all');
     }
@@ -24,8 +23,7 @@ class Questions_controller extends app_controller {
     if(isset($_GET['question_id'])) {
       $question = Question::find($_GET['question_id']);
       $question->delete();
-      header("Location: index.php?route=modules&method=show&module_id=". $question->module->id);
-      die();
+      Helper::routRedirect('index',array('route'=>'modules','method'=>'show','module_id' => $question->module->id));
       return $data;
     }
   }
@@ -35,8 +33,7 @@ class Questions_controller extends app_controller {
       $question = Question::find($params['id']);
       unset($params['id']);
       $question->update_attributes($params);
-      header("Location: index.php?route=modules&method=show&module_id=". $question->module->id);
-      die();
+      Helper::routRedirect('index',array('route'=>'modules','method'=>'show','module_id' => $question->module->id));
     } else {
       $data['question'] = Question::find($_GET['question_id']);
     }
