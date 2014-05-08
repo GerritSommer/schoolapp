@@ -19,7 +19,7 @@
      */
     public function loadView($view, $data = false) {
       $path = explode('_',$view);
-
+      // echo 'views/'.$path[0]. '/' .$view .'_view.php';
       if(file_exists('views/'.$path[0]. '/' .$view .'_view.php') && $this->view == false) {
         /*
          * Cast array to vars

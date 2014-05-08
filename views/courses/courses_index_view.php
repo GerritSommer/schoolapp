@@ -5,9 +5,12 @@
     <ul class="modules-list">
       <?php foreach ($modules as $module): ?>
         <li>
-          <div class="col-md-12">
-          	
-            Anzahl Fragen: <?=count($module->questions)?> 
+          <div class="col-md-2">
+            <?= $module->name ?>
+          </div>
+          <div class="col-md-10">
+
+            Anzahl Fragen: <?=count($module->questions)?>
             <?php
             $modules_done = 0;
             if(isset($user->courses)){

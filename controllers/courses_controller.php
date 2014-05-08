@@ -14,6 +14,17 @@
       return $data;
     }
 
+    public function ask_question() {
+      if(isset($_GET['module_id']) and isset($_GET['question_id'])) {
+        $data['module'] = Module::find($_GET['module_id']);
+        $data['question'] = Question::find($_GET['question_id']);
+        return $data;
+      }
+    }
+
+    public function check_question() {
+
+    }
   }
 
 ?>
