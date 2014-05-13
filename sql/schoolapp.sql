@@ -4,20 +4,18 @@ CREATE DATABASE schoolapp;
 CREATE TABLE IF NOT EXISTS schoolapp.answers (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `question_id` int(255) NOT NULL,
-  `user_id` int(255) NOT NULL,
   `answer` text NOT NULL,
   `kind` tinyint(1) NOT NULL,
   `date_created` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
-INSERT INTO schoolapp.answers (id, user_id, question_id, answer, kind, date_created) VALUES
-(1,1,1,'huh!', 1, UNIX_TIMESTAMP());
+INSERT INTO schoolapp.answers (id, question_id, answer, kind, date_created) VALUES
+(1,1,'huh!', 1, UNIX_TIMESTAMP());
 
 CREATE TABLE IF NOT EXISTS schoolapp.modules (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
-  `user_id` int(255) NOT NULL,
   `description` text NOT NuLL,
   `date_created` int(11) NOT NULL,
   PRIMARY KEY (`id`)
@@ -29,7 +27,6 @@ INSERT INTO schoolapp.modules (`id`, `name`, `description`, `date_created`) VALU
 
 CREATE TABLE IF NOT EXISTS schoolapp.questions (
   `id` int(255) NOT NULL AUTO_INCREMENT,
-  `user_id` int(255) NOT NULL,
   `module_id` int(255) NOT NULL,
   `question` text NOT NULL,
   `hint` text NOT NULL,
@@ -37,8 +34,8 @@ CREATE TABLE IF NOT EXISTS schoolapp.questions (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
-INSERT INTO schoolapp.questions (id, user_id, module_id, question, hint, date_created) VALUES
-(1,1,1,'huh?', 'ugfu', UNIX_TIMESTAMP());
+INSERT INTO schoolapp.questions (id, module_id, question, hint, date_created) VALUES
+(1,1,'Wie bitte?', 'ugfu', UNIX_TIMESTAMP());
 
 CREATE TABLE IF NOT EXISTS schoolapp.users (
   `id` int(4) NOT NULL AUTO_INCREMENT,
@@ -52,14 +49,12 @@ CREATE TABLE IF NOT EXISTS schoolapp.users (
 INSERT INTO schoolapp.users (`id`, `name`, `password`, `role`) VALUES
 (1, 'admin', 'pw', 'admin');
 
-CREATE TABLE IF NOT EXISTS schoolapp.courses (
+CREATE TABLE IF NOT EXISTS schoolapp.histories (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `user_id` int(255) NOT NULL,
   `answer_id` int(255) NOT NULL,
-  `question_id` int(255) NOT NULL,
-  `module_id` int(255) NOT NULL,
-  `date_created` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-
+INSERT INTO schoolapp.histories (`id`, `user_id`, `answer_id`) VALUES
+(1, 1, 1);

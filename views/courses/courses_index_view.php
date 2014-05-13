@@ -9,20 +9,7 @@
             <?= $module->name ?>
           </div>
           <div class="col-md-10">
-
-            Anzahl Fragen: <?=count($module->questions)?>
-            <?php
-            $modules_done = 0;
-            if(isset($user->courses)){
-              $modules_done = count($user->courses->find_by_module_id($module->id));
-            }
-
-            echo "Beantwortet: ".$modules_done;
-
-            if($modules_done < count($module->questions)){
-              echo '<a href="?route=courses&method=show&module_id='.$module->id.'">Modul '.$module->name.' starten</a>';
-            }
-            ?>
+            <?php var_dump($user->answers); ?>
           </div>
         <?php endforeach; ?>
       </li>

@@ -1,11 +1,10 @@
 <?php
   class Courses_controller extends app_controller{
-    protected $models = array('answer','module','question','user','course');
+    protected $models = array('answer','module','question','user', 'history');
 
     public function index(){
         $data['modules'] = Module::find('all');
         $data['user'] = User::find($_SESSION['user_id']);
-
         return $data;
     }
 

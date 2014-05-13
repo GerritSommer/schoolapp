@@ -2,7 +2,7 @@
 
 class Users_controller extends app_controller {
 
-  protected $models = array('user');
+  protected $models = array('user', 'history', 'answer');
 
   public function index() {
     $data['users'] = User::find('all');
