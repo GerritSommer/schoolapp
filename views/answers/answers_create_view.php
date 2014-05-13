@@ -13,13 +13,13 @@
       <h4 class="page-header">New Answer(s)</h4>
       <form role="form" action="?route=answers&method=create" method="post">
         <input type="hidden" name="question_id" value="<?=$question->id?>" />
-        <input type="hidden" name="user_id" value="<?=$_SESSION['user_id']?>" />
+
         <div class="form-group float-label-control">
           <label for="answer">Answer</label>
           <textarea class="form-control" id="answer" placeholder="Antwort" name="answer"></textarea>
         </div>
         <div class="form-group float-label-control">
-          <input type="checkbox" name="kind" value="1"/>
+          <input type="checkbox" name="kind" id="kind" value="1"/>
           <label for="kind">Richtige Antwort</label>
         </div>
         <button class="btn btn-lg btn-block btn-success" type="submit">

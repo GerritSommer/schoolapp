@@ -21,7 +21,7 @@
           <textarea class="form-control" id="answer" placeholder="Antwort" name="answer"><?= $answer->answer ?></textarea>
         </div>
         <div class="form-group float-label-control">
-          <input type="checkbox" name="kind" value="<?= $answer->kind ?>"/>
+          <input type="checkbox" name="kind" id="kind" value="<?= $answer->kind ?>"/>
           <label for="kind">Richtige Antwort</label>
         </div>
         <button class="btn btn-lg btn-block btn-success" type="submit">

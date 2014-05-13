@@ -4,7 +4,6 @@
       <h4 class="page-header">Neue Frage</h4>
 
       <form role="form" action="?route=questions&method=create" method="post">
-        <input type="hidden" name="user_id" value="<?= $_SESSION['user_id']; ?>" />
         <input type="hidden" name="module_id" value="<?= $_GET['module_id']; ?>" />
         <div class="form-group">
           <label for="question">Frage</label>

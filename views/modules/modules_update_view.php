@@ -5,7 +5,6 @@
       <h4 class="page-header">Modul bearbeiten</h4>
 
       <form role="form" action="?route=modules&method=update" method="post">
-        <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
         <input type="hidden" name="module_id" value="<?= $module->id ?>" />
 
         <div class="form-group">

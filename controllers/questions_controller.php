@@ -1,6 +1,6 @@
 <?php
 class Questions_controller extends app_controller {
-  protected $models = array('question', 'module', 'answer');
+  protected $models = array('question', 'module', 'answer', 'history', 'user');
 
   public function index() {
     $data['questions'] = Question::find('all');
