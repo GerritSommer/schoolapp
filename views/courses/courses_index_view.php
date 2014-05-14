@@ -28,21 +28,31 @@ $answered_questions_ids = array_map(function($answer){ return $answer->id; }, $a
 
       ?>
         <li>
-          <div class="col-md-2">
+          <div class="col-sm-2">
               <?= $module->name ?>
           </div>
-          <div class="col-md-10">
-            <?= sizeof($modules_question_ids) ?> von <?= sizeof($modules_answered_question_ids) ?> Fragen wurden beantwortet.
+          <div class="col-sm-10">
+            <?= sizeof($modules_answered_question_ids) ?> von <?= sizeof($modules_question_ids) ?> Fragen wurden beantwortet.
             Davon sind <?=  round((count($users_correct_answers_ids_of_this_module) / count($modules_answers))*100, 2); ?>% richtig.
             <?php if(sizeof($modules_answered_question_ids) !== sizeof($modules_question_ids)): ?>
               <a href="?route=courses&method=ask_question&module_id=<?= $module->id ?>">Fragen beanworten</a>
             <?php endif; ?>
 
           </div>
-
         <?php endforeach; ?>
       </li>
     </ul>
+    <br />
+    <br />
+    <br />
+    <div class="col-sm-12">
+      <a href="uploads/PT_Aufgabe_test.pka" download="PT_Aufgabe_test.pka">Download Packet Tracer PKA</a>
+    </div>
+
+
+
+
+
 
   </div>
 

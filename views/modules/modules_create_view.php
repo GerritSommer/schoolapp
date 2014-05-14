@@ -4,7 +4,6 @@
       <h4 class="page-header">Neues Modul</h4>
 
       <form role="form" action="?route=modules&method=create" method="post">
-        <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
 
         <div class="form-group">
           <label for="name">Titel</label>
