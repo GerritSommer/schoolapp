@@ -2,7 +2,15 @@
 
 class Users_controller extends app_controller {
 
-  protected $models = array('user', 'history', 'answer');
+  protected $models = array('user', 'history', 'answer', 'module', 'question');
+
+  public function profile() {
+    $data['user'] = User::find($_SESSION['user_id']);
+    $data['answers'] = Answer::all();
+    $data['questions'] = Question::all();
+    $data['modules'] = Module::all();
+    return $data;
+  }
 
   public function index() {
     $data['users'] = User::find('all');

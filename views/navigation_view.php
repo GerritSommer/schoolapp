@@ -42,7 +42,7 @@
         ',array('admin','teacher'))?>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <li><a class="glyphicon glyphicon-user" href="index.php"></a></li>
+        <li><a class="glyphicon glyphicon-user" href="?route=users&method=profile"></a></li>
         <?=$helper->ifRoleIs('<li><a href="?route=login&method=logout">Logout</a></li>',array('admin','student','teacher'))?>
         <?php
           if(!isset($_SESSION['user_id'])){
