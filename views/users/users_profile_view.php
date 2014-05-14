@@ -3,6 +3,8 @@ $users_answers   = $user->answers;
 $correct_answers = array_filter($users_answers, function($answer) use($user) { return $answer->kind === 1; });
 $users_questions = array_map(function($answer){ return $answer->question; }, $users_answers);
 $users_modules   = array_map(function($question){ return $question->module; }, $users_questions);
+$users_modules_ids   = array_unique(array_map(function($module){ return $module->id; }, $users_modules));
+
 ?>
 <div class="container main">
   <h2>Profil</h2>
@@ -27,7 +29,7 @@ $users_modules   = array_map(function($question){ return $question->module; }, $
         <dl class="dl">
 
           <dt>Kurse</dt>
-          <dd><?= count($users_modules); ?> von <?= count($modules); ?> erledigt</dd>
+          <dd><?= count($users_modules_ids); ?> von <?= count($modules); ?> erledigt</dd>
           <dt>Durchschnitt</dt>
           <dd><?= round((count($correct_answers) / count($users_answers)), 2)*100; ?>%</dd>
 
