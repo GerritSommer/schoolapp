@@ -7,6 +7,6 @@ define('DB_USER', 'root');
 define('DB_PASSWD', '');
 define('DB_NAME', 'schoolapp');
 
-define('DEBUG', true);
+define('DEBUG', false);
 define('INSTALL', true);
 ?>

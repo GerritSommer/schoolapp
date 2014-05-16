@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  class="fullscreen_bg">
 	<head>
   		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,7 +20,7 @@
 		$view_name = (isset($data['route_redirect'])?$data['route_redirect']:$view_name);
 		require_once 'views/navigation_view.php';
 		$helper->loadView(lcfirst($view_name), $data);
-		
+
 		if(DEBUG == true){
 			echo '<div class="container well container" style="margin-top:20px;">';
 				echo '<h5><b>$_REQUEST DATADUMP</b></h5><pre>';
